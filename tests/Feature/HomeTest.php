@@ -21,4 +21,5 @@ class HomeTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.commingsoon')->assertSee('HVCNBCVT');
     }
+
 }

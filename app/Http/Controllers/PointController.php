@@ -52,11 +52,10 @@ class PointController extends Controller
     }
 
     public function tbKi($diem, $tctl){
-        $diem = array(0,1,2);
-        $tctl = array(2,3,2);
         $tbm = array();
         $i =0;
         $n = count($diem);
+        if($diem != null && $tctl !=null)
         for($i = 0; $i< $n; $i++){
             if ($diem[$i] == 0 ){
                 $tctl[$i] = 0;
@@ -64,10 +63,32 @@ class PointController extends Controller
             $tbm[$i] =  $diem[$i] * $tctl[$i];
         }
         $tbk =  array_sum($tbm)/ array_sum($tctl);
+        $tbk = round($tbk,2);
         return $tbk;
     }
 
+    public function tinChiKi($diem, $tctl){
+      $i =0;
+        $n = count($diem);
+        for($i = 0; $i< $n; $i++){
+            if ($diem[$i] == 0 ){
+                $tctl[$i] = 0;
+            }
+        }
+        $tongTC =  array_sum($tctl);
+        return $tongTC;
+    }
 
+    public function tinChiCaKhoa($tck){
+      $tcck = array_sum($tck);
+      return $tcck;
+    }
+
+    public function tbCaKhoa($tbK){
+      $tbKhoa = array_sum($tbK)/count($tbK);
+      $tbK = round($tbKhoa,2);
+      return $tbK;
+    }
     /**
      * Display a listing of the resource.
      *

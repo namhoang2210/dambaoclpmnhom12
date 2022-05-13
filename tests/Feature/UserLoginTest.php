@@ -48,4 +48,4 @@ class UserLoginTest extends TestCase
             ->assertRedirect('/home');
         $this->assertAuthenticatedAs($user);
     }
-}
+}    
